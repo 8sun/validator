@@ -1,0 +1,43 @@
+{
+  "name": "@8sun/validator",
+  "version": "0.0.5",
+  "description": "",
+  "directories": {
+    "lib": "lib"
+  },
+  "main": "lib/validator.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint \"src/**/**.ts\"",
+    "format": "prettier \"src/**/**.ts\" --write",
+    "lint:fix": "eslint --fix \"src/**/**.ts\"",
+    "test": "node --test lib/test/**.test.js",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install"
+  },
+  "author": "Yevhen Blotskyi",
+  "engines": {
+    "node": ">=18.16.0"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.2.0",
+    "@types/node": "^20.5.7",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.2"
+  },
+  "lint-staged": {
+    "*.{ts}": "npm run lint",
+    "*.ts": "npm run format"
+  }
+}
