@@ -53,7 +53,7 @@ export default class Validator {
     if (typeof this.value !== 'string') {
       return new DateValidator(this.value, false)
     }
-    const isValid = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z?)$/.test(this.value) && !isNaN(new Date(this.value).getDate())
+    const isValid = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3}Z)?(Z?)$/.test(this.value) && !isNaN(new Date(this.value).getDate())
     return new DateValidator(this.value, isValid)
   }
 

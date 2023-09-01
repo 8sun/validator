@@ -62,9 +62,11 @@ test('Should correctly validate date-time string', () => {
   assert.ok(!new Validator({}).isDateTimeString().check(), 'isDateTimeString returns true when an object')
   assert.ok(!new Validator(undefined).isDateTimeString().check(), 'isDateTimeString returns true when undefined')
   assert.ok(!new Validator(NaN).isDateTimeString().check(), 'isDateTimeString returns true when wrong when NaN')
+  assert.ok(!new Validator('2022-12-12T00:00:00.123').isDateTimeString().check(), 'isDateTimeString returns true when milliseconds without Z')
 
   assert.ok(new Validator('2000-01-01T12:12:12Z').isDateTimeString().check(), 'isDateTimeString returns false when correct')
   assert.ok(new Validator('2022-12-12T00:00:00').isDateTimeString().check(), 'isDateTimeString returns false when correct')
+  assert.ok(new Validator('2022-12-12T00:00:00.123Z').isDateTimeString().check(), 'isDateTimeString returns false when correct')
 })
 
 test('Should correctly validate date-time string when nullable', () => {
