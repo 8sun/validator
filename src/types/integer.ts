@@ -1,6 +1,6 @@
-import Validate from '../validate.js'
+import TypeValidator from '../typeValidator.js'
 
-export default class IntegerValidator extends Validate {
+export default class IntegerValidator extends TypeValidator {
   declare value: number
 
   inRange(from: number, to: number): IntegerValidator {

@@ -1,6 +1,6 @@
-import Validate from '../validate.js'
+import TypeValidator from '../typeValidator.js'
 
-export default class ObjectValidator extends Validate {
+export default class ObjectValidator extends TypeValidator {
   declare value: object
 
   notEmpty(): ObjectValidator {

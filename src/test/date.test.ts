@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert'
 import Validator from '../validator.js'
 
-test('Should correctly validate date', async () => {
+test('Should correctly validate date', () => {
   assert.ok(!new Validator('2022-12-12').isDate().check(), 'isDate returns true when wrong month')
   assert.ok(!new Validator('2022-1-12').isDate().check(), 'isDate returns true when wrong month')
   assert.ok(!new Validator('').isDate().check(), 'isDate returns true when empty')
@@ -23,7 +23,7 @@ test('Should correctly validate date when nullable', () => {
   assert.ok(new Validator(null).isDate().nullable().check(), 'isDate.nullable returns false when null')
 })
 
-test('Should correctly validate date string', async () => {
+test('Should correctly validate date string', () => {
   assert.ok(!new Validator('2022-123-12').isDateString().check(), 'isDateString returns true when wrong month')
   assert.ok(!new Validator('2022-1-12').isDateString().check(), 'isDateString returns true when wrong month')
   assert.ok(!new Validator('2022-01-123').isDateString().check(), 'isDateString returns true when wrong day')
@@ -41,12 +41,12 @@ test('Should correctly validate date string', async () => {
   assert.ok(new Validator('2022-12-12').isDateString().check(), 'isDateString returns false when correct')
 })
 
-test('Should correctly validate date string when nullable', async () => {
+test('Should correctly validate date string when nullable', () => {
   assert.ok(new Validator('2022-12-12').isDateString().nullable().check(), 'isDateString.nullable returns true when date is correct')
   assert.ok(new Validator(null).isDateString().nullable().check(), 'isDateString.nullable returns false when null')
 })
 
-test('Should correctly validate date-time string', async () => {
+test('Should correctly validate date-time string', () => {
   assert.ok(!new Validator('2022-123-12').isDateTimeString().check(), 'isDateTimeString returns true when wrong month')
   assert.ok(!new Validator('2022-1-12').isDateTimeString().check(), 'isDateTimeString returns true when wrong month')
   assert.ok(!new Validator('2022-01-123').isDateTimeString().check(), 'isDateTimeString returns true when wrong day')
@@ -67,7 +67,7 @@ test('Should correctly validate date-time string', async () => {
   assert.ok(new Validator('2022-12-12T00:00:00').isDateTimeString().check(), 'isDateTimeString returns false when correct')
 })
 
-test('Should correctly validate date-time string when nullable', async () => {
+test('Should correctly validate date-time string when nullable', () => {
   assert.ok(!new Validator('2022-12-12').isDateTimeString().nullable().check(), 'isDateTimeString.nullable returns true when not null')
 
   assert.ok(new Validator('2022-12-12T12:00:00').isDateTimeString().nullable().check(), 'isDateTimeString.nullable returns true when date is correct')

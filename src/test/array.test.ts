@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert'
 import Validator from '../validator.js'
 
-test('Should correctly validate an array', async () => {
+test('Should correctly validate an array', () => {
   assert.ok(!new Validator('string').isArray().check(), 'isArray returns true when wrong month')
   assert.ok(!new Validator('').isArray().check(), 'isArray returns true when empty')
   assert.ok(!new Validator(null).isArray().check(), 'isArray returns true when null')

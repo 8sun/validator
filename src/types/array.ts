@@ -1,6 +1,6 @@
-import Validate from '../validate.js'
+import TypeValidator from '../typeValidator.js'
 
-export default class ArrayValidator extends Validate {
+export default class ArrayValidator extends TypeValidator {
   declare value: unknown[]
   notEmpty(): ArrayValidator {
     if (!this.isValid) return this

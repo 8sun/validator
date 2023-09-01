@@ -20,7 +20,7 @@ test('Should correctly validate an integer', () => {
   assert.ok(new Validator(9999).isInt().check(), 'isInt returns false when value is a number')
 })
 
-test('Should correctly validate integer in range', async () => {
+test('Should correctly validate integer in range', () => {
   assert.ok(!new Validator(2).isInt().inRange(0, 1).check(), 'returns true when inRange(0,1) for value 2')
   assert.ok(!new Validator(99).isInt().inRange(1, 98).check(), 'returns true when inRange(1,98) for value 99')
 
@@ -30,7 +30,7 @@ test('Should correctly validate integer in range', async () => {
   assert.ok(new Validator(0).isInt().inRange(0, 0).check(), 'returns false when inRange(0,0) for value 0')
 })
 
-test('Should correctly validate integer when zero and unsigned', async () => {
+test('Should correctly validate integer when zero and unsigned', () => {
   assert.ok(!new Validator(0).isInt().notZero().check(), 'returns true when notZero for value 0')
   assert.ok(!new Validator(0).isInt().notZero().unsigned().check(), 'returns true when notZero and unsigned for value 0')
   assert.ok(!new Validator(-1).isInt().unsigned().check(), 'returns true when unsigned for value -1')
@@ -39,7 +39,7 @@ test('Should correctly validate integer when zero and unsigned', async () => {
   assert.ok(new Validator(1).isInt().notZero().unsigned().check(), 'returns false when unsigned for value 1')
 })
 
-test('Should correctly validate integer when nullable', async () => {
+test('Should correctly validate integer when nullable', () => {
   assert.ok(!new Validator('a').isInt().nullable().check(), 'isInt.nullable returns true when incorrect')
 
   assert.ok(new Validator(0).isInt().nullable().check(), 'isInt.nullable returns false when 0')

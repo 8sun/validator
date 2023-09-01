@@ -1,6 +1,6 @@
-import Validate from '../validate.js'
+import TypeValidator from '../typeValidator.js'
 
-export default class StringValidator extends Validate {
+export default class StringValidator extends TypeValidator {
   declare value: string
 
   notEmpty(): StringValidator {
@@ -9,7 +9,7 @@ export default class StringValidator extends Validate {
     return this
   }
 
-  nullable(): { check: () => keyof Validate } | StringValidator {
+  nullable(): { check: () => keyof TypeValidator } | StringValidator {
     if (this.value === null) {
       this.isValid = true
       return this

@@ -5,7 +5,7 @@ export class ValidationError extends Error {
   }
 }
 
-export default abstract class Validate {
+export default abstract class TypeValidator {
   protected value: unknown
   protected isValid: boolean
 

@@ -12,7 +12,7 @@ Example:
 Supported types: 
 - integer
 - decimal
-- date
+- date (dataString, dateTimeString)
 - object
 - string
 - array

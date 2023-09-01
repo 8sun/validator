@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert'
 import Validator from '../validator.js'
 
-test('Should correctly validate decimal', async () => {
+test('Should correctly validate decimal', () => {
   assert.ok(!new Validator('1,33').isDecimal().check(), 'isDecimal returns true when value is decimal with comma in string')
   assert.ok(!new Validator('string').isDecimal().check(), 'isDecimal returns true when value is string')
   assert.ok(!new Validator([]).isDecimal().check(), 'isDecimal returns true when value is array')
@@ -17,7 +17,7 @@ test('Should correctly validate decimal', async () => {
   assert.ok(new Validator(-2.34).isDecimal().check(), 'isDecimal returns false when value is decimal')
 })
 
-test('Should correctly validate decimal maxSize', async () => {
+test('Should correctly validate decimal maxSize', () => {
   assert.ok(!new Validator(0.11).isDecimal().maxSize(2, 1).check(), 'isDecimal.maxSize returns true when wrong precision')
   assert.ok(!new Validator(11.1).isDecimal().maxSize(2, 1).check(), 'isDecimal.maxSize returns true when wrong precision')
   assert.ok(!new Validator(11.12).isDecimal().maxSize(3, 1).check(), 'isDecimal.maxSize returns true when wrong scale')
@@ -33,7 +33,7 @@ test('Should correctly validate decimal maxSize', async () => {
   assert.ok(new Validator(4).isDecimal().maxSize(2, 0).check(), 'isDecimal.maxSize returns false when value is decimal')
 })
 
-test('Should correctly validate decimal when nullable', async () => {
+test('Should correctly validate decimal when nullable', () => {
   assert.ok(!new Validator('a').isDecimal().nullable().check(), 'isDecimal.nullable returns true when incorrect')
 
   assert.ok(new Validator(0).isDecimal().nullable().check(), 'isDecimal.nullable returns false when 0')

@@ -1,6 +1,6 @@
-import Validate from '../validate.js'
+import TypeValidator from '../typeValidator.js'
 
-export default class DateValidator extends Validate {
+export default class DateValidator extends TypeValidator {
   nullable() {
     if (this.value === null) {
       this.isValid = true
