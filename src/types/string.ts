@@ -9,7 +9,7 @@ export default class StringValidator extends TypeValidator {
     return this
   }
 
-  nullable(): { check: () => keyof TypeValidator } | StringValidator {
+  nullable() {
     if (this.value === null) {
       this.isValid = true
       return this
